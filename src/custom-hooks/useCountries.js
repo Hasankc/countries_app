@@ -5,18 +5,18 @@ const url = "https://restcountries.com/v3.1/all";
 
 const useCountries = function () {
 
-    const [data, setData] = useState();
+    const [data, setData] = useState([ ])
 
     const [error, setError] = useState();
 
     const getData = async function () {
         const resp = await fetch(url);
-        if(resp.ok) {
+        if(!resp.ok) {
             throw new Error("Response not ok!");
 
         }
 
-        const data = await Response.jason();
+        const data = await Response.json();
 
         setData(data);
 
