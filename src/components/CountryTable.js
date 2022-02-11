@@ -1,21 +1,18 @@
+import React from "react"
+import './CountryTable.css';
+// import {DataGrid} from '@material-ui/data-grid'
+import TableHead from "./TableHead";
+import TableBody from "./TableBody";
+
 function CountryTable(props) {
   return (
-    <table>
-      {props.countries.map((country, index) => {
-        return (
-          <tr key={index}>
-            <td>
-              <img src={country.flags.png} alt="Flag" />
-            </td>
-            <td>{country.name.common}</td>
-            <td>{country.population}</td>
-            <td>{country.region}</td>
-            <td>{JSON.stringify(country.languages)}</td>
-          </tr>
-        );
-      })}
-    </table>
-  );
+    <div className='container'>
+      <table>
+        <TableHead />
+        <TableBody countriesList={props.countries} />
+      </table>
+    </div>
+  )
 }
 
 export default CountryTable;
