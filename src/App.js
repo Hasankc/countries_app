@@ -26,11 +26,11 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/:name" element={<CountryDeatails />} />
+            <Route path="/:nameId" element={<CountryDeatails />} />
           </Routes>
         </Router>
 
-        {/* < CountryTable countries={countries} />; */}
+        
         {/* <CountryTable countries={countries} /> */}
       </Container>
     </div>

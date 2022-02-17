@@ -1,26 +1,32 @@
 import React, { useEffect, useState } from "react";
 import useCountries from "../custom-hooks/useCountries";
+import Table from "@mui/material/Table";
+import { TabContainer } from "react-bootstrap";
 
 import TableHead from "../components/TableHead";
+import TableBody from "../components/TableBody";
+import CountryTable from "../components/CountryTable";
+
 
 function Home() {
-  const [countryData, SetCountryData] = useState();
-  const [error, data] = useCountries();
+  const countries = useCountries();
 
-  useEffect(() => {
-    if (!data) return;
+  console.log("from Home", countries);
+  return (
+    <>
+      <div>Hello</div>
+      {/* <CountryTable countries={countries} /> */}
 
-    const countries =
-      data &&
-      data.map((country) => ({
-        name: country.name.common,
-        population: country.population,
-        region: country.countries,
-        language: country.language,
-      }));
-    SetCountryData(countries);
-  }, [data]);
-
-  return <div> country </div>;
+      <h1>All countries</h1>
+      <TabContainer>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          
+          <CountryTable/>
+          <TableHead />
+          <TableBody countriesList={countries} />
+        </Table>
+      </TabContainer> 
+    </> 
+  );
 }
 export default Home;

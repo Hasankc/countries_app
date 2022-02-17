@@ -10,6 +10,7 @@ function useCountries() {
   async function foo() {
     try {
       const response = await fetch(url);
+      console.log("response", response);
       const json = await response.json();
       setCountries(json);
     } catch (error) {
@@ -20,8 +21,8 @@ function useCountries() {
   useEffect(() => {
     foo();
   }, []);
-
-  return [error, countries];
+  console.log("from hook", countries);
+  return countries;
 }
 
 export default useCountries;

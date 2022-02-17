@@ -12,25 +12,26 @@ function CountryDetails() {
   //     const navigate = useNavigate();
   //      const { error, country } = useCountry(countries);
   //   }
-  const { name } = useParams;
-  const country = useCountry(name);
-
+  const { nameId } = useParams();
+  const country = useCountry(nameId);
+console.log("name", country)
   return (
-    <TableBody>
-      {country.map((rows) => (
-        <TableRow
-          key={rows?.name?.common}
-          sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-        >
-          <TableCell
-            // onClick={() => navigate(`/${rows?.name?.common}`)}
-            algin="center"
-          >
-            {rows.name}
-          </TableCell>
-        </TableRow>
-      ))}
-    </TableBody>
+    <div>hello</div>
+    // <TableBody>
+    //   {country?.map((rows) => (
+    //     <TableRow
+    //       key={rows?.name?.common}
+    //       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+    //     >
+    //       <TableCell
+    //         // onClick={() => navigate(`/${rows?.name?.common}`)}
+    //         algin="center"
+    //       >
+    //         {rows.name}
+    //       </TableCell>
+    //     </TableRow>
+    //   ))}
+    // </TableBody>
   );
 }
 export default CountryDetails;

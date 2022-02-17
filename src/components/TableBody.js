@@ -1,9 +1,9 @@
 import TableRow from "./TableRow";
 
-function TableBody(props) {
+function TableBody({countries}) {
   return (
     <tbody>
-      {props.countriesList.map((country, index) => {
+      {countries?.map((country, index) => {
         return <TableRow key={index} index={index} country={country} />;
       })}
     </tbody>

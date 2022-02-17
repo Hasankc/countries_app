@@ -1,32 +1,33 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function TableRow(props) {
+function TableRow({country}) {
   const navigate = useNavigate();
   function determineLanguages(languagesObj) {
     return Object.values(languagesObj || {}).join(", ");
   }
+  console.log("here ", country);
   return (
     <tr className="table">
-      <td>
+      {/* <td>
         <img
           className="country-flag"
-          src={props.country.flags.png}
-          alt={"Flag of " + props.country.name.common}
+          src={country.flags.png}
+          alt={"Flag of " + country.name.common}
         />
-      </td>
+      </td> */}
       <td
         className="name"
         onClick={() => {
-          navigate(`/${props.country.name.common}`);
+          navigate(`/${country.name.common}`);
         }}
       >
-        {props.country.name.common}
+        {country.name.common}
       </td>
-      <td className="popluation">{props.country.population}</td>
-      <td className="region">{props.country.region}</td>
+      <td className="popluation">{country.population}</td>
+      <td className="region">{country.region}</td>
       <td className="languages">
-        {determineLanguages(props.country.languages)}
+        {determineLanguages(country.languages)}
       </td>
     </tr>
   );
