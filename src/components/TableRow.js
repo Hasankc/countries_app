@@ -9,19 +9,14 @@ function TableRow({country}) {
   console.log("here ", country);
   return (
     <tr className="table">
-      {/* <td>
+       <td>
         <img
           className="country-flag"
           src={country.flags.png}
           alt={"Flag of " + country.name.common}
         />
-      </td> */}
-      <td
-        className="name"
-        onClick={() => {
-          navigate(`/${country.name.common}`);
-        }}
-      >
+      </td> 
+      <td onClick={() => {navigate(`/${country.name.common}`);}} >
         {country.name.common}
       </td>
       <td className="popluation">{country.population}</td>

@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 async function useCountry(name) {
   const [country, setCountry] = useState([]);
   const [error, setError] = useState(null);
-
+  const [isLoading, setIsLoading] = useState(true);
   async function foo(name) {
     try {
       const response = await fetch(`https://restcountries.com/v3.1/name/${name}`);
@@ -16,6 +16,7 @@ async function useCountry(name) {
       setCountry(json);
     } catch (error) {
       setError(error);
+      setIsLoading(false);
     }
   }
 
@@ -23,10 +24,10 @@ async function useCountry(name) {
     foo(name);
   }, [name]);
   console.log("response country12", country);
-  return country;
+  return [country, error, isLoading];
   
 }
 
-// }
+
 
 export default useCountry;

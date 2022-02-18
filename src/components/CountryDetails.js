@@ -12,8 +12,14 @@ function CountryDetails() {
   //     const navigate = useNavigate();
   //      const { error, country } = useCountry(countries);
   //   }
-  const { nameId } = useParams();
-  const country = useCountry(nameId);
+  const { name } = useParams();
+  const [country, error] = useCountry(name)
+  if (error) {
+    return <p>Some problem</p>
+  }
+  if (!country) {
+    return <p>Looding...</p>
+  }
 console.log("name", country)
   return (
     <div>hello</div>

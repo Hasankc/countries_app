@@ -6,7 +6,7 @@ const url = "https://restcountries.com/v3.1/all";
 function useCountries() {
   const [countries, setCountries] = useState([]);
   const [error, setError] = useState(null);
-
+  const [isLoding, setIsLoading]= useState(true);
   async function foo() {
     try {
       const response = await fetch(url);
@@ -15,6 +15,7 @@ function useCountries() {
       setCountries(json);
     } catch (error) {
       setError(error);
+      setIsLoading(false);
     }
   }
 
@@ -22,7 +23,7 @@ function useCountries() {
     foo();
   }, []);
   console.log("from hook", countries);
-  return countries;
+  return [error, countries, isLoding];
 }
 
 export default useCountries;
