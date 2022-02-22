@@ -13,16 +13,18 @@ function useCountries() {
       console.log("response", response);
       const json = await response.json();
       setCountries(json);
-    } catch (error) {
-      setError(error);
       setIsLoading(false);
+    } catch (error) {
+     
+      setError(error);
+      
     }
+    setIsLoading(false);
   }
 
   useEffect(() => {
     foo();
   }, []);
-  console.log("from hook", countries);
   return [error, countries, isLoding];
 }
 

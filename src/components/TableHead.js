@@ -1,22 +1,24 @@
 import React from "react";
 import TableRow from "./TableRow";
-
 import TableCell from "@mui/material/TableCell";
-import TableHead from "@mui/material/TableHead";
+import MuiTableHead from "@mui/material/TableHead";
 
-export default function TableHeder() {
+const columns = ['Flag', 'Name', 'Population', 'Region', 'Languages']
+
+ function TableHede() {
   return (
-    <div>
-      <TableHead>
-        <TableRow>
-          <TableCell align="center">Flag</TableCell>
-          <TableCell align="center">Name</TableCell>
-          <TableCell align="center">Population</TableCell>
-          <TableCell align="center">Region</TableCell>
-          <TableCell align="center">Languages</TableCell>
-        </TableRow>
-      </TableHead>
-    </div>
+    
+      <MuiTableHead>
+        
+          
+            {columns.map(columnName => (
+              <TableCell key= {columnName}>{columnName}</TableCell>
+          
+          
+          ))}
+        
+      </MuiTableHead>
+    
   );
 }
-
+export default TableHede;

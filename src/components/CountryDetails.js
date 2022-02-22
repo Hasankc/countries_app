@@ -20,9 +20,13 @@ function CountryDetails() {
   if (!country) {
     return <p>Looding...</p>
   }
-console.log("name", country)
   return (
-    <div>hello</div>
+    <div>
+      <h1>{country.name.common}</h1>
+      <div>
+        {country.languages? Object.values(country.languages).map(value => <p>{value}</p>) : 'N/A'}
+      </div>
+    </div>
     // <TableBody>
     //   {country?.map((rows) => (
     //     <TableRow

@@ -14,16 +14,18 @@ async function useCountry(name) {
       const json = await response.json();
       console.log("we try ", json);
       setCountry(json);
-    } catch (error) {
-      setError(error);
       setIsLoading(false);
+    } catch (error) {
+      
+      setError(error);
+      
     }
+    setIsLoading(false);
   }
 
   useEffect(() => {
     foo(name);
   }, [name]);
-  console.log("response country12", country);
   return [country, error, isLoading];
   
 }
