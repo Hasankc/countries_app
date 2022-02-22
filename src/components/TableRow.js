@@ -10,7 +10,7 @@ import TableHead from "./TableHead"
 function index({ countries }) {
   return (
     <TableContainer>
-      <Table>
+      <Table sx={{ minWidth: 650 }} aria-label="country table">
           <TableHead />
           <TableBody />
       </Table>
