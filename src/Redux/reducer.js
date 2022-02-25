@@ -1,40 +1,42 @@
-import { Action } from "history"
-import { ADD_FAVORITE, REMOVE_FAVORITE } from "./action"
+import { action } from "history";
+import { ADD_FAVORITE, REMOVE_FAVORITE } from "./action";
+
+
+
 
 const initialState = {
-    favoriteCountries: [],
-} 
+  favoriteCountries: [],
+};
 
 const reducer = (state = initialState, action) => {
-    switch (action.type) {
-        case ADD_FAVORITE:
-            const countryName = action,payload
-            const isInList = state.favoriteCountries.some(
-                name => name === countryName
-            )
-            if (isInList){
-                return state
-            }
+  switch (action.type) {
+    case ADD_FAVORITE:
+      const countryName = action.payload;
+      const isInList = state.favoriteCountries.some(
+        (name) => name === countryName
+      );
+      if (isInList) {
+        return state;
+      }
 
-            return {
-                ...state
-                favoriteCountries: [...state.favoriteCountries, countryName],
-            }
-           
-            
+      return {
+        ...state,
+        favoriteCountries: [...state.favoriteCountries, countryName],
+      };
 
-            case REMOVE_FAVORITE:
-                const reCountryName = action.payload
-                const newList = state.favoriteCountries.filter(name => name !== reCountryName)
-                return{
-                    
-                 ...state,
-                 favoriteCountries: newList,
-                }
+    case REMOVE_FAVORITE:
+      const reCountryName = action.payload;
+      const newList = state.favoriteCountries.filter(
+        (name) => name !== reCountryName
+      );
+      return {
+        ...state,
+        favoriteCountries: newList,
+      };
 
-                default:
-                    return state
-    }
-}
+    default:
+      return state;
+  }
+};
 
-export default reducer
+export default reducer;

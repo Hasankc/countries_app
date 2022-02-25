@@ -11,13 +11,10 @@ import { useParams } from "react-router-dom";
 import { CardMedia } from "@mui/material";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
-// import useCountries from "../custom-hooks/useCountries";
+
 
 function CountryDetails() {
-  //   const  {countries} = () => {
-  //     const navigate = useNavigate();
-  //      const { error, country } = useCountry(countries);
-  //   }
+
   const { name } = useParams();
   const [country, error, isLoading] = useCountry(name);
 
