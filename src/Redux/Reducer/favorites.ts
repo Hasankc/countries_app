@@ -1,5 +1,5 @@
 import { action } from "history";
-import { ADD_FAVORITE, REMOVE_FAVORITE } from "./action";
+import { ADD_FAVORITE, REMOVE_FAVORITE } from "../action";
 
 
 

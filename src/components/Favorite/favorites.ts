@@ -2,7 +2,7 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 
-function favorites() {
+function Favorites() {
     const favoriteCountries = useSelector(state => state.favoriteCountries)
   return (
     <div>
@@ -15,4 +15,4 @@ function favorites() {
   )
 }
 
-export default favorites
+export default Favorites
