@@ -1,10 +1,12 @@
 // This hook is used to fetch one specific country
 import { useState, useEffect } from "react";
 
-import { country }  from '../components/types'
+import { Country }  from '../types'
 
-export default function useCountry(name: string) {
-  const [country, setCountry] = useState<country | null>([]);
+type Return = [Country | null, Error | null, isLoding | null]
+
+ const useCountry = (name: string): Return => {
+  const [country, setCountry] = useState<Country | null>([]);
   const [error, setError] = useState<Error | null>(null);
   const [isLoding, setIsLoading] = useState(true);
   useEffect(() => {
@@ -23,3 +25,4 @@ export default function useCountry(name: string) {
   return [country, error, isLoding];
 }
 
+export default useCountry

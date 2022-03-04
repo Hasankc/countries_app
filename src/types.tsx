@@ -1,5 +1,5 @@
 
-export type = Country = {
+export type  Country = {
 name: {
     common: string
 
@@ -12,6 +12,6 @@ name: {
 
     }
     region: string
-    population: numper
+    population: number
     capital: string[]
 }
