@@ -12,7 +12,7 @@ function index({ countries }) {
     <TableContainer>
       <Table sx={{ minWidth: 650 }} aria-label="country table">
           <TableHead />
-          <TableBody />
+          <TableBody countries={countries} />
       </Table>
     </TableContainer>
   );

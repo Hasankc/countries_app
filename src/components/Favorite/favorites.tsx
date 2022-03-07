@@ -1,9 +1,10 @@
 
 import React from 'react'
 import {useSelector} from 'react-redux'
+import { InitialState } from '../../Redux/store'
 
 function Favorites() {
-    const favoriteCountries = useSelector(state => state.favoriteCountries)
+    const favoriteCountries = useSelector((state: InitialState) => state.favorites.favoriteCountries)
   return (
     <div>
         <ul>

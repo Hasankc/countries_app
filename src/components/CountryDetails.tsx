@@ -16,7 +16,7 @@ import Button from "@mui/material/Button";
 function CountryDetails() {
 
   const { name } = useParams();
-  const [country, error, isLoading] = useCountry(name);
+  const [country, error, isLoading] = useCountry(name as string);
 
   if (error) {
     return <p>Some problem</p>;
@@ -59,11 +59,11 @@ function CountryDetails() {
                 {country?.name.common}
               </Typography>
 
-              <Typography
+              {/* <Typography
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
-              ></Typography>
+              ></Typography> */}
 
               <Typography>Languages</Typography>
 

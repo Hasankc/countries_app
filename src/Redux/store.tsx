@@ -9,8 +9,19 @@ const rootRedicer = combineReducers({
   favorites: favoritesReducer,
 })
 
-const initialState = {
-favorites:  { favoriteCountries: []} ,
+type RootState = ReturnType<typeof rootRedicer>
+
+export type InitialState = {
+  favorites: {
+    favoriteCountries: string[]
+  }
+  user: {
+    user: null | {firstName: string; lastName: string}
+  }
+}
+
+const initialState: InitialState = {
+favorites:  { favoriteCountries: [] },
 user: { user: null },
 }
 
@@ -25,7 +36,7 @@ if (favoritelist){
 
   store.subscribe(() => {
     const currentState = store.getSate()
-    const favoritelist = currentState.favoriteCountries
+    const favoritelist = currentState.favorite.favoriteCountries
     localStorage.setItem('countries', JSON.stringify(favoritelist))
 
   })

@@ -1,14 +1,16 @@
-import { action } from "history";
-import { ADD_FAVORITE, REMOVE_FAVORITE } from "../action";
+// import { Actions } from "history";
+import {  Actions, ADD_FAVORITE, REMOVE_FAVORITE } from "../action";
 
 
+type InitState = {
+  favoriteCountries: string[]
+}
 
-
-const initialState = {
+const initialState: InitState = {
   favoriteCountries: [],
 };
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action: Actions): InitState => {
   switch (action.type) {
     case ADD_FAVORITE:
       const countryName = action.payload;

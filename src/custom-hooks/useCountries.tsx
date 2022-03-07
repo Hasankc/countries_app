@@ -1,11 +1,14 @@
 // This hook is used to fetch all countries
 import { useState, useEffect } from "react";
+import { Country } from "../types";
 
 const url = "https://restcountries.com/v3.1/all";
 
+// type Return = [Country[], Error | error]
+
 function useCountries() {
-  const [countries, setCountries] = useState([]);
-  const [error, setError] = useState(null);
+  const [countries, setCountries] = useState<Country[]>([]);
+  const [error, setError] = useState<Error | null>(null);
   const [isLoding, setIsLoading]= useState(true);
   async function foo() {
     try {
@@ -16,7 +19,7 @@ function useCountries() {
       setIsLoading(false);
     } catch (error) {
      
-      setError(error);
+      setError(error as Error);
       
     }
     setIsLoading(false);

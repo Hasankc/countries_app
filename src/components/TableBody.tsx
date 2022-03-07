@@ -8,11 +8,16 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import {addFavorite} from '../Redux/action'
+import { Country } from "../types";
 
-function TableBody({ countries }) {
+type TableBodyProps = {
+  countries: Country[]
+}
+
+function TableBody({ countries }: TableBodyProps) {
   const dispatch = useDispatch()
 
-  const addToFavorite = countryName =>{
+  const addToFavorite = (countryName: string) =>{
     dispatch(addFavorite(countryName))
   }
   

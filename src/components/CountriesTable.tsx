@@ -5,7 +5,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "./TableHead";
 import TableBody from "./TableBody";
 
-function CountriesTable(props) {
+function CountriesTable(props: any) {
   return (
     <TableContainer className="container-xl container-lg container-md container-sm container">
       <Table sx={{ minWidth: 650 }} aria-label="country table">
@@ -17,3 +17,4 @@ function CountriesTable(props) {
 }
 
 export default CountriesTable;
+
